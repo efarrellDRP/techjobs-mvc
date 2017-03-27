@@ -32,12 +32,15 @@ public class SearchController {
             ArrayList<HashMap<String, String>> jobs = JobData.findByValue(searchTerm);
             model.addAttribute("title", ("All Jobs Containing "+searchTerm));
             model.addAttribute("jobs", jobs);
+            model.addAttribute("searchTerm", searchTerm);
+
             return "search";
 
         } else {
             ArrayList<HashMap<String,String>> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", ("All " + columnChoices.get(searchType) + " Values Containing "+searchTerm ));
-
+            model.addAttribute("searchType",searchType);
+            model.addAttribute("searchTerm", searchTerm);
             model.addAttribute("jobs", jobs);
             return "search";
         }
