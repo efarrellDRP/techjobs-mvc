@@ -58,7 +58,8 @@ public class ListController extends TechJobsController {
             @RequestParam String column, @RequestParam String value) {
 
         ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(column, value);
-        model.addAttribute("title", Integer.toString(jobs.size())+" Result(s)");
+
+        model.addAttribute("results", Integer.toString(jobs.size())+" Result(s)");
         model.addAttribute("jobs", jobs);
 
         return "list-jobs";

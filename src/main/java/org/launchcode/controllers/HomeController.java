@@ -15,8 +15,6 @@ public class HomeController extends TechJobsController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("actions", getActionChoices());
-
         return "index";
     }
 
